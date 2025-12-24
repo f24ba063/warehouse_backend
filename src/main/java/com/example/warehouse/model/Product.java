@@ -26,6 +26,7 @@ public class Product {
 	private Long productId;
 	
 	private String productName;
+	private String makerName;
 	private String unitOfMeasure;
 	private Integer safetyStock;
 	private Integer minOrderQty;

@@ -20,14 +20,23 @@ public class LocationService {
 		return locationRepository.findAll();
 	}
 	
-	public Location addLocation(Location location) {
-		return locationRepository.save(location);
-	}
+    public Location addLocation(Location location) {
+        // locationCode自動生成
+        String code = String.format("LOC_%d%s%s%s",
+                location.getWarehouseId(),
+                location.getZoneId(),
+                location.getRackId(),
+                location.getShelfId());
+        location.setLocationCode(code);
 
-	public Location findById(Long id) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
+        return locationRepository.save(location);
+    }
+
+
+    public Location findByLocationCode(String locationCode) {
+        return locationRepository.findById(locationCode).orElse(null);
+    }
+    
 	public Location saveLocation(Location location) {
 		return locationRepository.save(location);
 	}

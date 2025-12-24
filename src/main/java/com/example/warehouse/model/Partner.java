@@ -24,9 +24,9 @@ public class Partner {
 	
 	private String partnerType;
 	private String partnerName;
-	private String address;
+	private String partnerAddress;
 	private String access;
-	
+	private String mail;
 	private int isVisible = 1;
 
 }

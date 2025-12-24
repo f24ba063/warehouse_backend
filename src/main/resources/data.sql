@@ -1,3 +1,15 @@
+
+-- =========================
+-- MAKER_MASTER
+-- =========================
+INSERT INTO MAKER_MASTER (MAKER_NAME, MAKER_ADDRESS, ACCESS, MAIL)
+VALUES
+('メーカーA', 'A県B市C町', '0011223344','abcde@mail.com'),
+('メーカーB', 'D県E市F町', '0055667788','abcde@mail.com'),
+('メーカーC', 'G県H市I町', '0123456789','abcde@mail.com'),
+('メーカーD', 'J県K市L町', '0101010101','abcde@mail.com');
+
+
 -- =========================
 -- PRODUCT_MASTER
 -- =========================
@@ -8,42 +20,31 @@ VALUES
 ('商品C', 'メーカーC', 'M', 8, 3, 1, 1);
 
 -- =========================
--- MAKER_MASTER
--- =========================
-INSERT INTO MAKER_MASTER (MAKER_NAME, MAKER_ADDRESS, ACCESS)
-VALUES
-('メーカーA', 'A県B市C町', '0011223344'),
-('メーカーB', 'D県E市F町', '0055667788'),
-('メーカーC', 'G県H市I町', '0123456789'),
-('メーカーD', 'J県K市L町', '0101010101');
-
-
--- =========================
 -- PARTNER_MASTER
 -- =========================
-INSERT INTO PARTNER_MASTER (PARTNER_TYPE, PARTNER_NAME, PARTNER_ADDRESS, ACCESS)
+INSERT INTO PARTNER_MASTER (PARTNER_TYPE, PARTNER_NAME, PARTNER_ADDRESS, ACCESS,MAIL)
 VALUES
-('S', '仕入先A', 'A県B市C町', '0011223344'),
-('S', '仕入先B', 'D県E市F町', '0055667788'),
-('C', '顧客A', 'G県H市I町', '0123456789'),
-('C', '顧客B', 'J県K市L町', '0101010101');
+('S', '仕入先A', 'A県B市C町', '0011223344','abcde@mail.com'),
+('S', '仕入先B', 'D県E市F町', '0055667788', 'eddfbcde@mail.com'),
+('C', '顧客A', 'G県H市I町', '0123456789', 'jshtshz@vbf.com'),
+('C', '顧客B', 'J県K市L町', '0101010101', 'bgdnsryjyrf@bff.com');
 
 -- =========================
 -- WAREHOUSE_MASTER
 -- =========================
-INSERT INTO WAREHOUSE_MASTER (WAREHOUSE_NAME)
+INSERT INTO WAREHOUSE_MASTER (WAREHOUSE_NAME, WAREHOUSE_ADDRESS, ACCESS, MAIL)
 VALUES
-('倉庫1', 'J県K市L町', '0101010101'),
-('倉庫2', 'G県H市I町', '0123456789');
+('倉庫1', 'J県K市L町', '0101010101', 'bgdnsryjyrf@bff.com'),
+('倉庫2', 'G県H市I町', '0123456789',  'abcde@mail.com');
 
 -- =========================
 -- LOCATION_MASTER
 -- =========================
 INSERT INTO LOCATION_MASTER (WAREHOUSE_ID, ZONE_ID, RACK_ID, SHELF_ID, LOCATION_CODE, MAX_CAPACITY)
 VALUES
-(1, 'Z01', 'R01', 'S001', 'LOC000000000001', 100),
-(1, 'Z01', 'R01', 'S002', 'LOC000000000002', 150),
-(2, 'Z02', 'R01', 'S001', 'LOC000000000003', 200);
+(1, 'Z01', 'R01', 'S001', 'LOC0000000000001', 100),
+(1, 'Z01', 'R01', 'S002', 'LOC0000000000002', 150),
+(2, 'Z02', 'R01', 'S001', 'LOC0000000000003', 200);
 
 -- =========================
 -- PURCHASE_HEAD

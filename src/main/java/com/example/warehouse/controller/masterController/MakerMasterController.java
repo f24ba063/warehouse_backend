@@ -16,7 +16,7 @@ import com.example.warehouse.service.MakerService;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping("/api/master/maker")
+@RequestMapping("/api/master/makers")
 public class MakerMasterController {
 	private final MakerService makerService ;
 

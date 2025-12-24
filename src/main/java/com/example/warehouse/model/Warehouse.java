@@ -26,5 +26,8 @@ public class Warehouse {
 	private Long warehouseId;
 	
 	private String warehouseName;
+	private String warehouseAddress;
+	private String access;
+	private String mail;
 	private int isVisible = 1;
 }

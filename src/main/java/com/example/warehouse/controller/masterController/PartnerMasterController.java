@@ -16,7 +16,7 @@ import com.example.warehouse.service.PartnerService;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping("/api/master/partner")
+@RequestMapping("/api/master/partners")
 public class PartnerMasterController {
 	private final PartnerService partnerService ;
 

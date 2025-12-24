@@ -22,10 +22,10 @@ public class Maker {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long makerId;
 	
-	private String makerType;
 	private String makerName;
-	private String address;
+	private String makerAddress;
 	private String access;
+	private String mail;
 	
 	private int isVisible = 1;
 

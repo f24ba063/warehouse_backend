@@ -16,7 +16,7 @@ import com.example.warehouse.service.LocationService;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping("/api/master/location")
+@RequestMapping("/api/master/locations")
 public class LocationMasterController {
 	private final LocationService locationService ;
 
@@ -30,13 +30,13 @@ public class LocationMasterController {
 	}
 	
 	@PostMapping
-	public Location addW(@RequestBody Location location) {
+	public Location addLocation(@RequestBody Location location) {
 		return locationService.addLocation(location);
 	}
 	
-	@PatchMapping("{id}/softDelete")
-	public void softDeleteWarehouset(@PathVariable Long id){
-		Location location = locationService.findById(id);
+	@PatchMapping("{locationCode}/softDelete")
+	public void softDeleteLocation(@PathVariable String locationCode){
+		Location location = locationService.findByLocationCode(locationCode);
 		if(location != null) {
 			location.setIsVisible(0);
 			locationService.saveLocation(location);

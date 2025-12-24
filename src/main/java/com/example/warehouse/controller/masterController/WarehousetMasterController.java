@@ -16,7 +16,7 @@ import com.example.warehouse.service.WarehouseService;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping("/api/master/warehouse")
+@RequestMapping("/api/master/warehouses")
 public class WarehousetMasterController {
 	private final WarehouseService warehouseService ;
 
