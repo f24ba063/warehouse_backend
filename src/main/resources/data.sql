@@ -1,29 +1,40 @@
 -- =========================
 -- PRODUCT_MASTER
 -- =========================
-INSERT INTO PRODUCT_MASTER (PRODUCT_NAME, UNIT_OF_MEASURE, SAFETY_STOCK, MIN_ORDER_QTY, IS_LOT_MANAGED, IS_ACTIVE)
+INSERT INTO PRODUCT_MASTER (PRODUCT_NAME, MAKER_NAME, UNIT_OF_MEASURE, SAFETY_STOCK, MIN_ORDER_QTY, IS_LOT_MANAGED, IS_ACTIVE)
 VALUES 
-('商品A', 'PCS', 10, 1, 1, 1),
-('商品B', 'KG', 5, 2, 0, 1),
-('商品C', 'M', 8, 3, 1, 1);
+('商品A', 'メーカーA', 'PCS', 10, 1, 1, 1),
+('商品B', 'メーカーB', 'KG', 5, 2, 0, 1),
+('商品C', 'メーカーC', 'M', 8, 3, 1, 1);
+
+-- =========================
+-- MAKER_MASTER
+-- =========================
+INSERT INTO MAKER_MASTER (MAKER_NAME, MAKER_ADDRESS, ACCESS)
+VALUES
+('メーカーA', 'A県B市C町', '0011223344'),
+('メーカーB', 'D県E市F町', '0055667788'),
+('メーカーC', 'G県H市I町', '0123456789'),
+('メーカーD', 'J県K市L町', '0101010101');
+
 
 -- =========================
 -- PARTNER_MASTER
 -- =========================
-INSERT INTO PARTNER_MASTER (PARTNER_TYPE, PARTNER_NAME)
+INSERT INTO PARTNER_MASTER (PARTNER_TYPE, PARTNER_NAME, PARTNER_ADDRESS, ACCESS)
 VALUES
-('S', '仕入先A'),
-('S', '仕入先B'),
-('C', '顧客A'),
-('C', '顧客B');
+('S', '仕入先A', 'A県B市C町', '0011223344'),
+('S', '仕入先B', 'D県E市F町', '0055667788'),
+('C', '顧客A', 'G県H市I町', '0123456789'),
+('C', '顧客B', 'J県K市L町', '0101010101');
 
 -- =========================
 -- WAREHOUSE_MASTER
 -- =========================
 INSERT INTO WAREHOUSE_MASTER (WAREHOUSE_NAME)
 VALUES
-('倉庫1'),
-('倉庫2');
+('倉庫1', 'J県K市L町', '0101010101'),
+('倉庫2', 'G県H市I町', '0123456789');
 
 -- =========================
 -- LOCATION_MASTER

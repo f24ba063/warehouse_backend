@@ -11,35 +11,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.warehouse.model.Product;
-import com.example.warehouse.service.ProductService;
+import com.example.warehouse.model.Partner;
+import com.example.warehouse.service.PartnerService;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping("/api/master/product")
-public class ProductMasterController {
-	private final ProductService productService;
+@RequestMapping("/api/master/partner")
+public class PartnerMasterController {
+	private final PartnerService partnerService ;
 
-	public ProductMasterController(ProductService productService) {
-		this.productService = productService;
+	public PartnerMasterController(PartnerService partnerService) {
+		this.partnerService = partnerService;
 	}
 
 	@GetMapping
-	public List<Product> getAllProducts(){
-		return productService.getAllProducts();
+	public List<Partner> getAllPartner(){
+		return partnerService.getAllPartners();
 	}
 	
 	@PostMapping
-	public Product addP(@RequestBody Product product) {
-		return productService.addProduct(product);
+	public Partner addW(@RequestBody Partner partner) {
+		return partnerService.addPartner(partner);
 	}
 	
 	@PatchMapping("{id}/softDelete")
-	public void softDeleteProduct(@PathVariable Long id){
-		Product product = productService.findById(id);
-		if(product != null) {
-			product.setIsVisible(0);
-			productService.saveProduct(product);
+	public void softDeleteWarehouset(@PathVariable Long id){
+		Partner partner = partnerService.findById(id);
+		if(partner != null) {
+			partner.setIsVisible(0);
+			partnerService.savePartner(partner);
 		}
 	}
 }
