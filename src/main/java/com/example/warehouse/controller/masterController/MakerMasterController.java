@@ -11,36 +11,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.warehouse.model.Product;
-import com.example.warehouse.service.ProductService;
+import com.example.warehouse.model.Maker;
+import com.example.warehouse.service.MakerService;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping("/api/master/product")
-public class ProductMasterController {
-	private final ProductService productService;
+@RequestMapping("/api/master/maker")
+public class MakerMasterController {
+	private final MakerService makerService ;
 
-	public ProductMasterController(ProductService productService) {
-		this.productService = productService;
+	public MakerMasterController(MakerService makerService) {
+		this.makerService = makerService;
 	}
 
 	@GetMapping
-	public List<Product> getAllProducts(){
-		return productService.getAllProducts();
+	public List<Maker> getAllMakers(){
+		return makerService.getAllMaker();
 	}
 	
 	@PostMapping
-	public Product addP(@RequestBody Product product) {
-		return productService.addProduct(product);
+	public Maker addW(@RequestBody Maker maker) {
+		return makerService.addMaker(maker);
 	}
 	
 	@PatchMapping("{id}/softDelete")
-	public void softDeleteProduct(@PathVariable Long id){
-		Product product = productService.findById(id);
-		if(product != null) {
-			product.setIsVisible(0);
-			productService.saveProduct(product);
+	public void softDeleteWarehouset(@PathVariable Long id){
+		Maker maker = makerService.findById(id);
+		if(maker != null) {
+			maker.setIsVisible(0);
+			makerService.saveMaker(maker);
 		}
 	}
 }
-

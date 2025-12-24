@@ -1,6 +1,6 @@
-***
+﻿***
 
-<table>1 PRODUCT_MASTER
+<table><strong>1 PRODUCT_MASTER(商品マスター）</strong>
 <thead>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
@@ -14,19 +14,38 @@
   <tr><td> IS_ACTIVE       </td><td> BOOLEAN      </td><td> NOT NULL </td><td> 有効フラグ </td></tr>
  </tbody>
 </table>
-
+<br>
 <table>
-<thead>2	WAREHOUSE_MASTER
+<thead><strong>2 WAREHOUSE_MASTER 倉庫マスター</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
-  <tr><td> WAREHOUSE_ID   </td><td> CHAR(5)     </td><td> PK       </td><td> 倉庫ID </td></tr>
-  <tr><td> WAREHOUSE_NAME </td><td> VARCHAR(50) </td><td> NOT NULL </td><td> 倉庫名 </td></tr>
+  <tr><td> WAREHOUSE_ID      </td><td> CHAR(5)      </td><td> PK       </td><td> 倉庫ID </td></tr>
+  <tr><td> WAREHOUSE_NAME    </td><td> VARCHAR(50)  </td><td> NOT NULL </td><td> 倉庫名 </td></tr>
+  <tr><td> WAREHOUSE_ADDRESS </td><td> VARCHAR(200) </td><td> NOT NULL </td><td> 倉庫住所 </td></tr>
+  <tr><td> WAREHOUSE_ACCESS  </td><td> VARCHAR(20)  </td><td> NOT NULL </td><td> 連絡先     </td></tr>
  </tbody>
 </table>
+<br>
 
 <table>
-<thead>3 LOCATION_MASTER
+<thead><strong>13 PARTNER_MASTER(取引先マスター)</strong>
+ <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
+</thead>
+ <tbody>
+  <tr><td> PARTNER_ID      </td><td> CHAR(4)		</td><td> PK       </td><td> 取引先ID (仕入先、得意先共通) </td></tr>
+  <tr><td> PARTNER_TYPE    </td><td> CHAR(1)		</td><td> NOT NULL </td><td> 種別 (S:仕入先, C:得意先, B:両方) </td></tr>
+  <tr><td> PARTNER_NAME    </td><td> VARCHAR(100)	</td><td> NOT NULL </td><td> 取引先名   </td></tr>
+  <tr><td> PARTNER_ADDRESS </td><td> VARCHAR(200)   </td><td> NOT NULL </td><td> 取引先住所 </td></tr>
+  <tr><td> PARTNER_ACCESS  </td><td> VARCHAR(20)    </td><td> NOT NULL </td><td> 連絡先     </td></tr>
+ </tbody>
+</table>
+<br>
+
+
+
+<table>
+<thead><strong>3 LOCATION_MASTER 倉庫地点マスター</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
@@ -38,9 +57,9 @@
   <tr><td> MAX_CAPACITY  </td><td> INT      </td><td>        </td><td> 最大収容数量 </td></tr>
  </tbody>
 </table>	
-
+<br>
 <table>
-<thead>4 PURCHASE_HEAD
+<thead><strong>4 PURCHASE_HEAD　発注ヘッダー</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
@@ -50,8 +69,8 @@
   <tr><td> TOTAL_AMOUNT </td><td> DECIMAL(14, 2) </td><td>            </td><td> 合計金額 (JPY) </td></tr>
  </tbody>
 </table>
-
-<table>5 PURCHASE_DETAIL
+<br>
+<table><strong>5 PURCHASE_DETAIL 発注各行詳細</strong>
 <thead>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
@@ -63,23 +82,23 @@
   <tr><td> ORDER_QUANTITY </td><td> INT            </td><td> NOT NULL </td><td> 数量 </td></tr>
  </tbody>
 </table>
-
-<table>6 INVENTORY_STOCK
+<br>
+<table><strong>6 INVENTORY_STOCK(在庫現物所在管理)</strong>
 <thead>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
   <tr><td> STOCK_ID      </td><td> BIGINT   </td><td> PK </td><td> 在庫実体ID (代理主キー) </td></tr>
   <tr><td> PRODUCT_ID    </td><td> BIGINT   </td><td> FK </td><td> 商品ID </td></tr>
-  <tr><td> LOCATION_CODE </td><td> CHAR(16) </td><td> FK </td><td> ロケーションコード </td></tr>
+  <tr><td> LOCATION_CODE </td><td> CHAR(16) </td><td> FK </td><td> ロケーションコード(INVENTORY_STOCK外部キー) </td></tr>
   <tr><td> LOT_NO        </td><td> CHAR(20) </td><td> FK </td><td> ロット番号 </td></tr>
   <tr><td colspan="4">(複合制約) UNIQUE(PRODUCT_ID, LOCATION_CODE, LOT_NO)	在庫の唯一性の定義</td></tr>
   <tr><td> STOCK </td><td> INT </td><td> NOT NULL </td><td> 現在の在庫数 (真実) </td></tr>
  </tbody>
 </table>
-
+<br>
 <table>
-<thead>7 SLIP_HEAD
+<thead><strong>7 SLIP_HEAD(伝票ヘッダー)</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
@@ -88,9 +107,9 @@
  </tbody>
 </table>
 
-
+<br>
 <table>
-<thead>8 SLIP_DETAIL
+<thead><strong>8 SLIP_DETAIL(伝票各行詳細)</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
@@ -101,9 +120,9 @@
  </tbody>
 </table>
 
-
+<br>
 <table>
-<thead>9 STOCK_MOVEMENT
+<thead><strong>9 STOCK_MOVEMENT(在庫移動履歴)</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
@@ -120,8 +139,9 @@
  </tbody>
 </table>
 
+<br>
 <table>
-<thead>10 ALLOCATION_STOCK
+<thead><strong>10 ALLOCATION_STOCK</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
@@ -133,9 +153,10 @@
  </td></tr>
  </tbody>
 </table>
+<br>
 
 <table>
-<thead>11 LOT_COST
+<thead><strong>11 LOT_COST</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
@@ -145,8 +166,9 @@
  </tbody>
 </table>
 
+<br>
 <table>
-<thead>12 LOT_MASTER
+<thead><strong>12 LOT_MASTER</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
@@ -159,30 +181,21 @@
  </tbody>
 </table>
 
-<table>
-<thead>13 PARTNER_MASTER
- <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
-</thead>
- <tbody>
-  <tr><td> PARTNER_ID   </td><td> CHAR(4)      </td><td> PK       </td><td> 取引先ID (仕入先、得意先共通) </td></tr>
-  <tr><td> PARTNER_TYPE </td><td> CHAR(1)      </td><td> NOT NULL </td><td> 種別 (S:仕入先, C:得意先, B:両方) </td></tr>
-  <tr><td> PARTNER_NAME </td><td> VARCHAR(100) </td><td> NOT NULL </td><td> 取引先名 </td></tr>
- </tbody>
-</table>
-
+<br>
 <table>
 <thead>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
- <tbody>14 SALES_HEAD
+ <tbody><strong>14 SALES_HEAD</strong>
   <tr><td> SALES_ID      </td><td> CHAR(12) </td><td> PK        </td><td> 出荷伝票ID </td></tr>
   <tr><td> CUSTOMER_ID   </td><td> CHAR(4)  </td><td> FK (P.M.) </td><td> 得意先ID </td></tr>
   <tr><td> SHIPPING_DATE </td><td> DATE     </td><td> NOT NULL  </td><td> 出荷予定日 </td></tr>
  </tbody>
 </table>
 
+<br>
 <table>
-<thead>15 SALES_DETAIL
+<thead><strong>15 SALES_DETAIL</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
@@ -194,8 +207,9 @@
  </tbody>
 </table>
 
+<br>
 <table>
-<thead>16 ALLOCATION_HEAD
+<thead><strong>16 ALLOCATION_HEAD</strong>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
 </thead>
  <tbody>
