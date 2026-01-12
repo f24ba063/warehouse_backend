@@ -2,6 +2,9 @@ package com.example.warehouse.controller.masterController;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.warehouse.dto.ProductRequest;
 import com.example.warehouse.model.Product;
 import com.example.warehouse.service.ProductService;
 
@@ -25,38 +29,47 @@ public class ProductMasterController {
 		this.productService = productService;
 	}
 
-	//データ獲得処理
+	//全件取得処理
 	@GetMapping
 	public List<Product> getAllProducts(){
 		return productService.getAllProducts();
 	}
 	
-	//新データの挿入処理
+	//新規登録処理
 	@PostMapping
-	public Product addP(@RequestBody Product product) {
-		return productService.addProduct(product);
+	public ResponseEntity<?> addP(@Valid @RequestBody ProductRequest request) {
+		if(productService.existsByProductName(request.getProductName())) {
+			return ResponseEntity
+					.badRequest()
+					.body("この商品はすでに存在しています。");
+		}
+		
+		Product saved = productService.createProduct(request);
+		return ResponseEntity.ok(saved);
 	}
 	
 	//既存データの編集処理
     @PutMapping("{id}")
-    public Product updateProduct(@PathVariable Long id, @RequestBody Product product) {
+    public ResponseEntity<?> updateProduct(@PathVariable Long id, @Valid @RequestBody ProductRequest request) {
         Product existing = productService.findById(id);
-        if(existing != null) {
-            // IDを上書きしないように注意
-            product.setProductId(id);
-            return productService.saveProduct(product);
+        if(existing == null) {
+            return ResponseEntity.notFound().build();
         }
-        return null; // or throw exception
+        
+        Product updated = productService.updateProduct(id,  request);
+        return ResponseEntity.ok(updated);
     }
     
     //ソフトデリート処理
 	@PatchMapping("{id}/softDelete")
-	public void softDeleteProduct(@PathVariable Long id){
-		Product product = productService.findById(id);
-		if(product != null) {
-			product.setIsVisible(0);
-			productService.saveProduct(product);
+	public ResponseEntity<?> softDeleteProduct(@PathVariable Long id){
+		Product existing = productService.findById(id);
+		if(existing == null) {
+			return ResponseEntity.notFound().build();
 		}
+		
+		productService.softDelete(id);
+		return ResponseEntity.ok().build();
 	}
 }
 
