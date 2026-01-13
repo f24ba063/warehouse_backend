@@ -1,5 +1,15 @@
 
 -- =========================
+-- USER
+-- =========================
+INSERT INTO APP_USER (USERNAME, PASSWORD, ROLE, ENABLED)
+VALUES
+('admin', 
+'$2a$10$XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+'ROLE_ADMIN',
+1);
+
+-- =========================
 -- MAKER_MASTER
 -- =========================
 INSERT INTO MAKER_MASTER (MAKER_NAME, MAKER_ADDRESS, ACCESS, MAIL)
