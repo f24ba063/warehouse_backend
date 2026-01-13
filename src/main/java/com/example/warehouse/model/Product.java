@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
-import jakarta.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,22 +29,16 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long productId;
 	
-	@NotBlank(message = "商品名は必須です。")
 	private String productName;
 	
-	@NotBlank(message = "メーカー名は必須です。")
 	private String makerName;
 	
-	@NotBlank(message = "重量単位は必須です。")
 	private String unitOfMeasure;
 	
-	@NotBlank(message = "カテゴリーは必須です。")
 	private Integer safetyStock;
 	
-	@NotBlank(message = "安全在庫は１以上である必要があります。")
 	private Integer minOrderQty;
 	
-	@NotBlank(message = "最小発注数は１以上である必要があります。")
 	private String category;
 	
 	private boolean isLotManaged;

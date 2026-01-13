@@ -72,4 +72,3 @@ public class ProductMasterController {
 		return ResponseEntity.ok().build();
 	}
 }
-
