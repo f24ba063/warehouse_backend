@@ -37,6 +37,8 @@ public class Product {
 	
 	private Integer safetyStock;
 	
+	private Integer orderQty;
+	
 	private Integer minOrderQty;
 	
 	private String category;
@@ -47,3 +49,4 @@ public class Product {
 	
 	private int isVisible = 1;
 }
+
