@@ -8,6 +8,8 @@ public class WarehouseAppApplication {
 //
 	public static void main(String[] args) {
 		SpringApplication.run(WarehouseAppApplication.class, args);
+//	    BCryptPasswordEncoder e = new BCryptPasswordEncoder();
+//	    System.out.println(e.encode("admin123"));
 	}
 
 }

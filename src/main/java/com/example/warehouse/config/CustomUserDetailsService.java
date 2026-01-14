@@ -1,8 +1,5 @@
 package com.example.warehouse.config;
 
-import java.util.Collections;
-
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,17 +20,19 @@ public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username)throws UsernameNotFoundException{
-		AppUser user = userRepository.findByUsername(username)
-				.orElseThrow(() -> new UsernameNotFoundException("ユーザーが見つかりません:"+username));
 		
-		return org.springframework.security.core.userdetails.User.builder()
-				.username(user.getUsername())
-				.password(user.getPassword())
-				.authorities(Collections.singleton(new SimpleGrantedAuthority(user.getRole())))
-				.accountExpired(false)
-				.accountLocked(false)
-				.credentialsExpired(false)
-				.disabled(!user.getEnabled())
-				.build();
+		AppUser user = userRepository.findByUsername(username)
+				.orElseThrow(() -> 
+				new UsernameNotFoundException("ユーザーが見つかりません:"+username));
+		
+        // DB に ROLE_ADMIN, ROLE_USER がそのまま入っている場合
+        String roleWithoutPrefix = user.getRole().replace("ROLE_", "");
+
+        return org.springframework.security.core.userdetails.User
+                .withUsername(user.getUsername())
+                .password(user.getPassword())
+                .roles(roleWithoutPrefix)   // ここで ROLE_ を除去
+                .disabled(!user.isEnabled())
+                .build();
 	}
 }

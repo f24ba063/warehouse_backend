@@ -29,4 +29,8 @@ public class AppUser {
 	
 	@Column(name = "ENABLED", nullable = false)
 	private Boolean enabled;
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -29,12 +30,16 @@ public class ProductMasterController {
 		this.productService = productService;
 	}
 
+	//事前にユーザー、アドミン双方に権限を設定している
+	@PreAuthorize("hasAnyRole('USER','ADMIN')")
 	//全件取得処理
 	@GetMapping
 	public List<Product> getAllProducts(){
 		return productService.getAllProducts();
 	}
 	
+	//adminのみ権限所有
+	@PreAuthorize("hasRole('ADMIN')")
 	//新規登録処理
 	@PostMapping
 	public ResponseEntity<?> addP(@Valid @RequestBody ProductRequest request) {
@@ -48,6 +53,8 @@ public class ProductMasterController {
 		return ResponseEntity.ok(saved);
 	}
 	
+	//adminのみ権限所有
+	@PreAuthorize("hasRole('ADMIN')")
 	//既存データの編集処理
     @PutMapping("{id}")
     public ResponseEntity<?> updateProduct(@PathVariable Long id, @Valid @RequestBody ProductRequest request) {
@@ -60,6 +67,8 @@ public class ProductMasterController {
         return ResponseEntity.ok(updated);
     }
     
+	//adminのみ権限所有
+	@PreAuthorize("hasRole('ADMIN')")
     //ソフトデリート処理
 	@PatchMapping("{id}/softDelete")
 	public ResponseEntity<?> softDeleteProduct(@PathVariable Long id){

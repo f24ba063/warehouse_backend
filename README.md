@@ -1,5 +1,6 @@
-﻿***
-
+﻿
+***
+pass:admin123
 <table><strong>1 PRODUCT_MASTER(商品マスター）</strong>
 <thead>
  <tr><th>カラム名</th><th>型</th><th>制約</th><th>説明</tr>
