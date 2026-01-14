@@ -1,5 +1,7 @@
 package com.example.warehouse.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -48,5 +50,13 @@ public class Product {
 	private boolean isActive;
 	
 	private int isVisible = 1;
+	
+	private LocalDateTime createdAt;
+	
+	private long createdBy;
+	
+	private LocalDateTime updatedAt;
+	
+	private long updatedBy;
+	
 }
-
