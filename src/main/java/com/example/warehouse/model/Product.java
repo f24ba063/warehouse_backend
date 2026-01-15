@@ -55,8 +55,8 @@ public class Product {
 	
 	private long createdBy;
 	
-	private LocalDateTime updatedAt;
+	private LocalDateTime lastUpdatedAt;
 	
-	private long updatedBy;
+	private long lastUpdatedBy;
 	
 }
