@@ -20,11 +20,20 @@ public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username)throws UsernameNotFoundException{
+		//デバッグログ。消そう
+		System.out.println("[DEBUG] loadUserByUsername called. username=" + username);
 		
 		AppUser user = userRepository.findByUsername(username)
-				.orElseThrow(() -> 
-				new UsernameNotFoundException("ユーザーが見つかりません:"+username));
-		
+				.orElseThrow(() -> {
+					//デバッグログ。消そう
+					System.out.println("[DEBUG] user not found in DB. username=" + username);
+		            return new UsernameNotFoundException("ユーザーが見つかりません:" + username);	
+				});
+				
+		//デバッグログ。消そう
+		System.out.println("[DEBUG] user found. username=" + user.getUsername()
+        + ", role=" + user.getRole()
+        + ", enabled=" + user.isEnabled());
         // DB に ROLE_ADMIN, ROLE_USER がそのまま入っている場合
         String roleWithoutPrefix = user.getRole().replace("ROLE_", "");
 
