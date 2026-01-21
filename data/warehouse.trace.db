@@ -727,3 +727,115 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/tjk037_
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 48 more
+2026-01-21 17:42:47.633690+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:42:47.641689+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:44:18.623972+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:44:18.630969+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:47:01.473025+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:47:01.480027+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:47:08.387681+09:00 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:47:08.388682+09:00 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:47:21.354746+09:00 jdbc[33]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:47:21.355750+09:00 jdbc[33]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:48:07.049763+09:00 jdbc[43]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:48:07.050763+09:00 jdbc[43]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:48:09.726085+09:00 jdbc[53]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:48:09.726085+09:00 jdbc[53]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:48:45.222799+09:00 jdbc[63]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:48:45.223796+09:00 jdbc[63]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:49:55.477905+09:00 jdbc[73]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:49:55.478903+09:00 jdbc[73]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:51:09.835183+09:00 jdbc[83]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:51:09.836184+09:00 jdbc[83]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:51:21.727703+09:00 jdbc[93]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:51:21.728700+09:00 jdbc[93]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:51:25.876857+09:00 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:51:25.878857+09:00 jdbc[103]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:54:42.563586+09:00 jdbc[113]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:54:42.563586+09:00 jdbc[113]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:56:18.983096+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_STOCK" はすでに存在します
+Table "HTE_STOCK" already exists; SQL statement:
+create global temporary table HTE_stock(quantity integer, rn_ integer not null, id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2026-01-21 17:56:18.988098+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HTE_INVOICE" はすでに存在します
+Table "HTE_INVOICE" already exists; SQL statement:
+create global temporary table HTE_invoice(quantity integer, rn_ integer not null, date_time timestamp(6), id bigint, product_code varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
