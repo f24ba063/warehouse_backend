@@ -35,6 +35,8 @@ public class Product {
 	
 	private String makerName;
 	
+	private String category;
+	
 	private String unitOfMeasure;
 	
 	private Integer safetyStock;
@@ -43,7 +45,9 @@ public class Product {
 	
 	private Integer minOrderQty;
 	
-	private String category;
+	private Integer packageQty;
+	
+	private Integer palletQty;
 	
 	private boolean isLotManaged;
 	

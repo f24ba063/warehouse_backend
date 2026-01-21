@@ -1,4 +1,4 @@
-package com.example.warehouse.memo;
+package com.example.warehouse.config;
 
 public class Memorandom {
 //	config - CustomUserDetailsService

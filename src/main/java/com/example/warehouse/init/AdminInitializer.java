@@ -29,7 +29,7 @@ public class AdminInitializer implements CommandLineRunner{
 		if(!exists) {
 			var admin = new AppUser();
 			admin.setUsername(adminUsername);
-			admin.setPassword(passwordEncoder.encode("初期パスワード"));
+			admin.setPassword(passwordEncoder.encode("admin123"));
 			admin.setRole("ROLE_ADMIN");
 			admin.setEnabled(true);
 			userRepository.save(admin);
