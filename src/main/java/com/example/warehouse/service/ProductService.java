@@ -1,65 +1,70 @@
 package com.example.warehouse.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.example.warehouse.dto.ProductRequest;
 import com.example.warehouse.model.Product;
 import com.example.warehouse.repository.ProductRepository;
 
 @Service
 public class ProductService {
-	private final ProductRepository productRepository;
 
-	
-	public ProductService(ProductRepository productRepository) {
-		this.productRepository = productRepository;
-	}
+    private final ProductRepository productRepository;
 
-	public List<Product> getAllProducts(){
-		return productRepository.findAll();
-	}
-	
-	public Product findById(Long id){
-		return productRepository.findById(id).orElse(null);
-	}
-	
-	public boolean existsByProductName(String name) {
-		return productRepository.existsByProductName(name);
-	}
-	
-	public Product createProduct(ProductRequest req) {
-		Product p = new Product();
-		mapRequestToEntity(req, p);
-		return productRepository.save(p);
-	}
-	
-	public Product updateProduct(Long id, ProductRequest req) {
-		Product p = findById(id);
-		if(p != null) {
-			mapRequestToEntity(req, p);
-			return productRepository.save(p);
-		}
-			return null;
-	}
-	
-	public void softDelete(Long id) {
-		Product p = findById(id);
-		if(p != null) {
-			p.setIsVisible(0);
-			productRepository.save(p);
-		}
-	}
-	
-    private void mapRequestToEntity(ProductRequest req, Product p) {
-        p.setProductName(req.getProductName());
-        p.setMakerName(req.getMakerName());
-        p.setUnitOfMeasure(req.getUnitOfMeasure());
-        p.setCategory(req.getCategory());
-        p.setSafetyStock(req.getSafetyStock());
-        p.setMinOrderQty(req.getMinOrderQty());
-        p.setLotManaged(req.isLotManaged());
-        p.setActive(req.isActive());
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    // 全件取得
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    // 商品名の存在確認
+    public boolean existsByProductName(String productName) {
+        return productRepository.existsByProductName(productName);
+    }
+
+    // 新規登録
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    // IDで取得
+    public Product findById(Long id) {
+        Optional<Product> optional = productRepository.findById(id);
+        return optional.orElse(null);
+    }
+
+    // 更新
+    public Product updateProduct(Long id, Product updatedProduct) {
+        Product existing = findById(id);
+        if (existing == null) return null;
+
+        existing.setProductName(updatedProduct.getProductName());
+        existing.setMakerName(updatedProduct.getMakerName());
+        existing.setCategory(updatedProduct.getCategory());
+        existing.setUnitOfMeasure(updatedProduct.getUnitOfMeasure());
+        existing.setSafetyStock(updatedProduct.getSafetyStock());
+        existing.setOrderQty(updatedProduct.getOrderQty());
+        existing.setMinOrderQty(updatedProduct.getMinOrderQty());
+        existing.setPackageQty(updatedProduct.getPackageQty());
+        existing.setPalletQty(updatedProduct.getPalletQty());
+        existing.setIsLotManaged(updatedProduct.getIsLotManaged());
+        existing.setIsActive(updatedProduct.getIsActive());
+        existing.setIsVisible(updatedProduct.getIsVisible());
+
+        return productRepository.save(existing);
+    }
+
+    // ソフトデリート
+    public void softDelete(Long id) {
+        Product existing = findById(id);
+        if (existing != null) {
+            existing.setIsVisible(0);
+            productRepository.save(existing);
+        }
     }
 }

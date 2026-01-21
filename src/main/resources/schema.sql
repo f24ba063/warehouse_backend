@@ -63,8 +63,8 @@ CREATE TABLE PRODUCT_MASTER (
     MIN_ORDER_QTY INT,						--最小発注単位数
     PACKAGE_QTY INT,						--箱（ケース）あたりの個数
     PALLET_QTY INT,							--パレットあたりの箱数
-    IS_LOT_MANAGED INT NOT NULL,			--ロット管理フラグ
-    IS_ACTIVE INT NOT NULL,					--販売開始フラグ
+    IS_LOT_MANAGED number(1) NOT NULL,			--ロット管理フラグ
+    IS_ACTIVE number(1) DEFAULT 0,					--販売開始フラグ
     IS_VISIBLE INT NOT NULL DEFAULT 1,		--可視（削除）フラグ
     CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP,--記事作成日時
     CREATED_BY BIGINT,						--記事作成者

@@ -2,12 +2,12 @@
 -- =========================
 -- USER(利用者)
 -- =========================
-INSERT INTO APP_USER (USERNAME, PASSWORD, ROLE, ENABLED)
-VALUES
-('admin', 
-'$2a$10$ZmNTpowvbc0FwWBnIxskn.1GEIXlufophfiSVkArMTBJ9LaFJ8.e6',
-'ROLE_ADMIN',
-1);
+--INSERT INTO APP_USER (USERNAME, PASSWORD, ROLE, ENABLED)
+--VALUES
+--('admin', 
+--'$2a$10$ZmNTpowvbc0FwWBnIxskn.1GEIXlufophfiSVkArMTBJ9LaFJ8.e6',
+--'ROLE_ADMIN',
+--1);
 
 -- =========================
 -- MAKER_MASTER(商品製作企業マスタ)
