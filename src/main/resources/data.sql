@@ -20,6 +20,22 @@ VALUES
 ('メーカーC', 'G県','H市I町', '1-7-22','0123456789','abcde@mail.com'),
 ('メーカーD', 'J県','K市L町', '△-331','0101010101','abcde@mail.com');
 
+-- =========================
+-- FACTORY_MASTER(商品製作企業マスタ)
+-- =========================
+INSERT INTO FACTORY_MASTER (FACTORY_NAME, FACTORY_ADDRESS_1, 
+FACTORY_ADDRESS_2, FACTORY_ADDRESS_3, ACCESS, MAIL)
+VALUES
+('工場A', 'A県','B市C町', '〇〇地区X-X-X','0011223344','abcde@mail.com'),
+('工場B', 'D県','E市F町', 'YY kkビル2階', '0055667788','abcde@mail.com'),
+('工場C', 'G県','H市I町', '1-7-22','0123456789','abcde@mail.com'),
+('工場D', 'J県','K市L町', '△-331','0101010101','abcde@mail.com');
+
+-- =========================
+-- CATEGORY_MASTER(カテゴリーマスタ)
+-- =========================
+INSERT INTO CATEGORY_MASTER (CATEGORY)
+VALUES('家電'),('マテリアル'),('生鮮'),('電子部品');
 
 -- =========================
 -- PRODUCT_MASTER(商品マスタ)
@@ -40,32 +56,40 @@ INSERT INTO PRODUCT_MASTER (
 	LAST_UPDATED_BY
 	)
 VALUES 
-('商品A', 'メーカーA', 'PCS', 'カテゴリー1', 500,  100,  200,   50,   250, 1, 1, 1, 1),
-('商品B', 'メーカーB', 'KG', 'カテゴリー2',  400,   10,   30,   50,   400, 0, 1, 1, 1),
-('商品C', 'メーカーC', 'M', 'カテゴリー3',     8,   40,  200,   20,   200, 1, 1, 1, 1),
-('商品D', 'メーカーD', 'M', 'カテゴリー3',  5000,   50,   50,   50,   500, 1, 1, 1, 1),
-('商品E', 'メーカーA', 'M', 'カテゴリー3',     5,    1,    5,   10,    50, 0, 1, 1, 1),
-('商品F', 'メーカーA', 'M', 'カテゴリー1',    60,   12,   12,   12,    60, 0, 1, 1, 1),
-('商品G', 'メーカーA', 'M', 'カテゴリー2',   120,   30,   30,   30,   360, 1, 1, 1, 1),
-('商品H', 'メーカーB', 'M', 'カテゴリー2',     8,  500,  500,  500,  2500, 0, 1, 1, 1),
-('商品I', 'メーカーB', 'M', 'カテゴリー3',     8,   50,  100,   20,   240, 1, 1, 1, 1),
-('商品J', 'メーカーC', 'M', 'カテゴリー1',     8,   10,   30,   15,    75, 1, 1, 1, 1),
-('商品K', 'メーカーC', 'M', 'カテゴリー4',     8,   50,  100,   40,   800, 0, 1, 1, 1),
-('商品L', 'メーカーD', 'M', 'カテゴリー6',     8,   10,   50,   10,    30, 1, 1, 1, 1),
-('商品M', 'メーカーD', 'M', 'カテゴリー7',     8,    3,   30,    6,    12, 0, 1, 1, 1),
-('商品N', 'メーカーA', 'M', 'カテゴリー3',     8,    3,    3,   14,    70, 1, 1, 1, 1);
+('商品A', 'メーカーA', 'PCS', '家電', 500,  100,  200,   50,   250, 1, 1, 1, 1),
+('商品B', 'メーカーB', 'KG','マテリアル',  400,   10,   30,   50,   400, 0, 1, 1, 1),
+('商品C', 'メーカーC', 'M', 'マテリアル',     8,   40,  200,   20,   200, 1, 1, 1, 1),
+('商品D', 'メーカーD', 'M', 'マテリアル',  5000,   50,   50,   50,   500, 1, 1, 1, 1),
+('商品E', 'メーカーA', 'M', 'マテリアル',     5,    1,    5,   10,    50, 0, 1, 1, 1),
+('商品F', 'メーカーA', 'M', '家電',    60,   12,   12,   12,    60, 0, 1, 1, 1),
+('商品G', 'メーカーA', 'M', '生鮮',   120,   30,   30,   30,   360, 1, 1, 1, 1),
+('商品H', 'メーカーB', 'M', '生鮮',     8,  500,  500,  500,  2500, 0, 1, 1, 1),
+('商品I', 'メーカーB', 'M', '生鮮',     8,   50,  100,   20,   240, 1, 1, 1, 1),
+('商品J', 'メーカーC', 'M', '家電',     8,   10,   30,   15,    75, 1, 1, 1, 1),
+('商品K', 'メーカーC', 'M', '電子部品',     8,   50,  100,   40,   800, 0, 1, 1, 1),
+('商品L', 'メーカーD', 'M', '電子部品',     8,   10,   50,   10,    30, 1, 1, 1, 1),
+('商品M', 'メーカーD', 'M', '電子部品',     8,    3,   30,    6,    12, 0, 1, 1, 1),
+('商品N', 'メーカーA', 'M', '電子部品',     8,    3,    3,   14,    70, 1, 1, 1, 1);
 
 -- =========================
--- PARTNER_MASTER(商品受け取り元企業・送り先企業マスタ)
+-- VENDOR_MASTER(仕入先企業マスタ)
 -- =========================
-INSERT INTO PARTNER_MASTER (PARTNER_TYPE, PARTNER_NAME, 
-	PARTNER_ADDRESS_1, PARTNER_ADDRESS_2, PARTNER_ADDRESS_3, 
+INSERT INTO VENDOR_MASTER (VENDOR_NAME, 
+	VENDOR_ADDRESS_1, VENDOR_ADDRESS_2, VENDOR_ADDRESS_3, 
 	ACCESS,MAIL)
 VALUES
-('S', '仕入先A', 'A県', 'B市', 'C町', '0011223344','abcde@mail.com'),
-('S', '仕入先B', 'D県', 'E市', 'F町', '0055667788', 'eddfbcde@mail.com'),
-('C', '顧客A', 'G県', 'H市', 'I町', '0123456789', 'jshtshz@vbf.com'),
-('C', '顧客B', 'J県', 'K市', 'L町', '0101010101', 'bgdnsryjyrf@bff.com');
+('仕入先A', 'A県', 'B市', 'C町', '0011223344','abcde@mail.com'),
+('仕入先B', 'D県', 'E市', 'F町', '0055667788', 'eddfbcde@mail.com');
+
+-- =========================
+-- CUSTOMER_MASTER(仕入先企業マスタ)
+-- =========================
+INSERT INTO CUSTOMER_MASTER (CUSTOMER_NAME, 
+	CUSTOMER_ADDRESS_1, CUSTOMER_ADDRESS_2, CUSTOMER_ADDRESS_3, 
+	ACCESS,MAIL)
+VALUES
+('顧客A', 'G県', 'H市', 'I町', '0123456789', 'jshtshz@vbf.com'),
+('顧客B', 'J県', 'K市', 'L町', '0101010101', 'bgdnsryjyrf@bff.com');
 
 -- =========================
 -- WAREHOUSE_MASTER(倉庫マスタ)
@@ -89,7 +113,7 @@ VALUES
 -- =========================
 -- INCOMING_HEAD(受け取り荷物ヘッダー)
 -- =========================
-INSERT INTO INCOMING_HEAD (SUPPLIER_ID, WAREHOUSE_ID, SHIPMENT_NO,
+INSERT INTO INCOMING_HEADER (VENDOR_ID, WAREHOUSE_ID, SHIPMENT_NO,
 	DOCUMENT_NO, ORDER_DATE, ORDER_STATUS,
 	ORDER_PRIORITY, RECEIVE_STATUS, CREATED_BY)
 VALUES
@@ -103,43 +127,30 @@ VALUES
 -- =========================
 INSERT INTO INCOMING_DETAIL (
 	INCOMING_ID,LINE_NO, PRODUCT_ID, UNIT,
-	INPUT_QTY, CALCULATED_QTY, RECEIVED_QTY, STORAGE_LOCATION,
-	EXPIRE_DATE, ITEM_WEIGHT, VOLUME, QUALITY_STATUS,
-	LOT_NO
+	INPUT_QTY, CALCULATED_QTY, RECEIVED_QTY,
+	EXPIRE_DATE, QUALITY_STATUS, LOT_NO
 )
 VALUES
 (1, 1, 1, 'パレット', 
-	2, 500, 500, '1Z01R01S001',
-	 '2025-12-12', 12, '10mm * 100mm * 10mm','合格', 
-	 '11234'),
+	2, 500, 500, 
+	 '2025-12-12', '合格', '11234'),
 	
 (1, 2, 2, '箱',
- 	5, 50, 250, '1Z01R01S002', 
- 	'2025-12-11', 24, '5mm * 45cm * 120mm', '要確認', 
- 	'05537'),
+ 	5, 50, 250,  
+ 	'2025-12-11', '要確認', '05537'),
 	
 (2, 1, 3, '桶',
- 	8, 20, 160, '2Z01R01S001', 
- 	'2025-12-10', 36, '200mm * 200 mm * 200mm', '不良', 
- 	'5593');
+ 	8, 20, 160,  
+ 	'2025-12-10', '不良', '5593');
 
 -- =========================
 -- LOT_MASTER
 -- =========================
-INSERT INTO LOT_MASTER (PRODUCT_ID, LOT_NO, CREATION_DATE, SUPPLIER_ID, EXPIRATION_DATE, QC_STATUS_ID)
+INSERT INTO LOT_MASTER (PRODUCT_ID, LOT_NO, CREATION_DATE, VENDOR_ID, EXPIRATION_DATE, QC_STATUS_ID)
 VALUES
 (1, 'LOT001', TIMESTAMP '2025-12-16 10:00:00', 1, DATE '2026-12-16', 'A'),
 (2, 'LOT002', TIMESTAMP '2025-12-16 11:00:00', 2, DATE '2026-11-30', 'A'),
 (3, 'LOT003', TIMESTAMP '2025-12-15 09:00:00', 1, DATE '2026-10-31', 'B');
-
--- =========================
--- LOT_COST
--- =========================
-INSERT INTO LOT_COST (PRODUCT_ID, LOT_NO, CONVERTED_COST_JPY)
-VALUES
-(1, 'LOT001', 1200),
-(2, 'LOT002', 1500),
-(3, 'LOT003', 1100);
 
 -- =========================
 -- INVENTORY_STOCK
