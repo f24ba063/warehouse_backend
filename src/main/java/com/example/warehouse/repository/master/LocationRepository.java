@@ -1,4 +1,4 @@
-package com.example.warehouse.repository;
+package com.example.warehouse.repository.master;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -7,10 +7,11 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+//在庫を管理するエンティティ
 @Entity
 @Getter
 @Setter
-public class Stock {
+public class Inventory {
 	@Id @GeneratedValue
 	private Long id;
 	private String productCode;

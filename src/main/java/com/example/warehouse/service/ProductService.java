@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.example.warehouse.model.Product;
-import com.example.warehouse.repository.ProductRepository;
+import com.example.warehouse.repository.master.ProductRepository;
 
 @Service
 public class ProductService {

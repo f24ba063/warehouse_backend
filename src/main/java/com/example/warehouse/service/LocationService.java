@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.warehouse.model.Location;
-import com.example.warehouse.repository.LocationRepository;
+import com.example.warehouse.repository.master.LocationRepository;
 
 @Service
 public class LocationService {

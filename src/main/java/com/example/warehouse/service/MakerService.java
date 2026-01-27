@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.warehouse.model.Maker;
-import com.example.warehouse.repository.MakerRepository;
+import com.example.warehouse.repository.master.MakerRepository;
 
 @Service
 public class MakerService {
