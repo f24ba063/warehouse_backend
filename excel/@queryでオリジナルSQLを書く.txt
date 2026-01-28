@@ -1,0 +1,28 @@
+SQLを記述するクラス
+→DAO(Repository層)に書くのが正解
+
+記述の仕方（そもそもSQL自体でなく
+springの支援で翻訳されたものを書く方法も含めて）
+
+例１：Spring Data JPA
+public interface UserRepository extends JpaRepository<User,Long>{
+	List<User> findByName(String name);
+}
+
+
+例２：@Queryを使って書く
+public interface UserRepository extends JpaRepository(User, Long>{
+	@Query(value = "SELECT * FROM users WHERE age > :age", nativeQuery = true)
+	List<User> findOlderThan(@Param("age") int age);
+}
+
+例３：MyBatisを使う（がっつり書く）
+XMLにSQLを書く
+<select id="findAll" resultType="User">
+	SELECT * FROM users
+</select>
+
+@Mapper
+public interface UserMapper{
+	List<User> findAll();
+}
